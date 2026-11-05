@@ -1,0 +1,138 @@
+{
+	"lostling": {
+		"name": "Lostling",
+		"sprite": "lostling",
+		"hp": 22, "atk": 4, "def": 0, "xp": 6, "shards": 3,
+		"difficulty": 0.85,
+		"bg": "#24305a",
+		"patterns": ["rain", "orbit"],
+		"intro": "A Lostling drifts closer, looking for something it can't name.",
+		"intro_if": [
+			{"if": "stat:killed>=3", "text": "A Lostling sees you and freezes. It has heard about you."}
+		],
+		"flavor": [
+			"The Lostling hums a song with no words.",
+			"The Lostling checks its pockets. It doesn't have pockets.",
+			"Smells like a birthday nobody remembers."
+		],
+		"taunts": ["...who... am... i...", "(sniff)", "is this... yours?"],
+		"talk": {
+			"reason": {"text": "You tell the Lostling it doesn't have to be scared of you.", "reply": "It wobbles. It wants to believe you.", "mercy": 35},
+			"joke": {"text": "You tell a joke, then forget the punchline.", "reply": "The Lostling forgets to be afraid for a second. That counts.", "mercy": 40},
+			"comfort": {"text": "You hum along with it. Wordless. Together.", "reply": "Its single eye goes soft.", "mercy": 60},
+			"intimidate": {"text": "You make yourself big and scary.", "reply": "It panics and attacks faster!", "mercy": -10, "difficulty": 0.2},
+			"question": {"text": "You ask who it used to belong to.", "reply": "It shows you a flicker: a kitchen, a laugh, a name it can't say.", "mercy": 25}
+		},
+		"spare_ready": "The Lostling is humming happily now.",
+		"spare_text": "The Lostling drifts off, humming. It seems lighter.",
+		"kill_text": "The Lostling scatters into blue dust. For a moment you hear a laugh you don't recognize. Then nothing."
+	},
+	"thornmoth": {
+		"name": "Thornmoth",
+		"sprite": "thornmoth",
+		"hp": 30, "atk": 5, "def": 1, "xp": 9, "shards": 5,
+		"difficulty": 1.0,
+		"bg": "#3a2050",
+		"patterns": ["rain", "wave", "mines"],
+		"intro": "A Thornmoth unfolds its wings. Every scale is a tiny thorn.",
+		"flavor": ["The Thornmoth flutters menacingly. Mostly flutters.", "The Thornmoth is circling a light that isn't there."],
+		"taunts": ["Prove. You're. Strong.", "Bzzt.", "Garden. Was. Mine."],
+		"talk": {
+			"reason": {"text": "You explain that fighting won't bring its garden back.", "reply": "It pauses mid-flutter.", "mercy": 30},
+			"joke": {"text": "You make a moth-to-a-flame joke.", "reply": "The Thornmoth does not laugh. It has heard that one.", "mercy": 5},
+			"comfort": {"text": "You tell it its wings are beautiful.", "reply": "It preens. Slightly.", "mercy": 25},
+			"intimidate": {"text": "You stand your ground and don't flinch.", "reply": "The Thornmoth respects that. A lot.", "mercy": 45},
+			"question": {"text": "You ask where it came from.", "reply": "It was a garden once. Someone forgot to water it.", "mercy": 30}
+		},
+		"spare_ready": "The Thornmoth bows its antennae to you.",
+		"spare_text": "The Thornmoth flies off toward a patch of moonflowers.",
+		"kill_text": "The Thornmoth's wings crumble like dry petals."
+	},
+	"ink_shade": {
+		"name": "Ink Shade",
+		"sprite": "ink_shade",
+		"hp": 38, "atk": 6, "def": 2, "xp": 12, "shards": 6,
+		"difficulty": 1.1,
+		"bg": "#2a1a10",
+		"patterns": ["beam", "teleport", "mines"],
+		"intro": "An Ink Shade rises from a spilled sentence.",
+		"flavor": ["The Ink Shade drips onto the floor and spells something rude.", "The Ink Shade is trying to remember what word it was."],
+		"taunts": ["[REDACTED]", "unwritten... unwritten...", "you are a typo"],
+		"talk": {
+			"reason": {"text": "You tell it the Archivist doesn't own it.", "reply": "The ink ripples. Uncertain.", "mercy": 20},
+			"joke": {"text": "You ask if it's feeling a little blotchy.", "reply": "It doesn't get it. It's ink.", "mercy": 0},
+			"comfort": {"text": "You tell it whatever it was, it mattered.", "reply": "A single letter forms on its face: 'O'. Like a gasp.", "mercy": 30},
+			"intimidate": {"text": "You threaten to wipe it up.", "reply": "That is its greatest fear. It fights harder.", "mercy": -5, "difficulty": 0.25},
+			"question": {"text": "You ask what word it used to be.", "reply": "It spells, slowly: H-O-M-E. Then smudges.", "mercy": 45}
+		},
+		"spare_ready": "The Ink Shade is spelling 'thank you'. Badly.",
+		"spare_text": "The Ink Shade flows into a crack in the floor, at peace.",
+		"kill_text": "The Ink Shade splashes apart. The stain doesn't come out."
+	},
+	"archivist": {
+		"name": "The Archivist",
+		"sprite": "archivist",
+		"boss": true,
+		"hp": 170, "atk": 7, "def": 3, "xp": 60, "shards": 30,
+		"turn_time": 8.0,
+		"mercy_per_turn": 6,
+		"difficulty": 1.0,
+		"music": "boss",
+		"bg": "#3a2410",
+		"intro": "The Archivist closes its book. \"Ah. A new entry.\"",
+		"intro_if": [
+			{"if": "stat:killed=0", "text": "The Archivist reads your page. \"Not one name erased. How... unusual.\""},
+			{"if": "stat:killed>=3", "text": "The Archivist opens a ledger heavy with names. \"You've been busy erasing too.\""}
+		],
+		"flavor": ["The Archivist licks a finger and turns a page.", "Dust rains from the shelves.", "Somewhere, a bookmark falls."],
+		"not_ready": "The Archivist shakes its head. \"I haven't finished reading you.\"",
+		"spare_ready": "The Archivist's pen has stopped moving.",
+		"phases": [
+			{
+				"patterns": ["pages", "rain"],
+				"taunts": ["Every life is a book. Most end mid-sentence.", "Hold still. I'm reading.", "Your margins are full of doubt."],
+				"talk": {
+					"question": {"text": "You ask what it's protecting.", "reply": "\"Protecting? I am CATALOGUING. Everything ends up here eventually.\"", "mercy": 15},
+					"comfort": {"text": "You tell it that keeping everyone's endings must be lonely.", "reply": "The pages stop. Just for a moment.", "mercy": 20},
+					"reason": {"text": "You say forgotten things deserve another chance.", "reply": "\"Sentiment. Unfiled.\"", "mercy": 10},
+					"joke": {"text": "You ask if it has any overdue books.", "reply": "\"...Several million.\" It almost smiles.", "mercy": 15},
+					"intimidate": {"text": "You threaten to burn the library.", "reply": "\"Threats are just very short stories.\" The pages sharpen.", "mercy": -10, "difficulty": 0.2}
+				}
+			},
+			{
+				"hp_below": 0.66, "turn": 3,
+				"text": "The Archivist tears out a page. Your own handwriting stares back at you.",
+				"patterns": ["pages", "beam", "orbit"],
+				"taunts": ["Recognize this? You wrote it before you fell.", "Read along."],
+				"companion_lines": {
+					"echo": "Echo: \"{player}, those are YOUR memories! Don't let it keep them!\"",
+					"clockmaker": "Clockmaker: \"Steady now. Every page turns eventually.\""
+				},
+				"talk": {
+					"question": {"text": "You ask whose page it tore out.", "reply": "\"Yours. You were FILED, {player}. Someone wanted you forgotten.\"", "mercy": 25, "do": {"set": {"learned_filed": true}}},
+					"comfort": {"text": "You tell it you won't erase it, whatever it does.", "reply": "Its ink-heart flickers.", "mercy": 25}
+				}
+			},
+			{
+				"hp_below": 0.33, "turn": 6,
+				"text": "The shelves groan. The Archivist is running out of pages.",
+				"patterns": ["pages", "gravity", "teleport", "mines"],
+				"taunts": ["Why won't you END?", "There must be a last line..."],
+				"companion_lines": {
+					"echo": "Echo: \"It's scared too. I can feel it.\"",
+					"clockmaker": "Clockmaker: \"Tick... tock... almost there.\""
+				},
+				"talk": {
+					"comfort": {"text": "You ask if it would like to be remembered, instead of remembering.", "reply": "\"...No one has ever asked to keep ME.\"", "mercy": 35},
+					"question": {"text": "You ask who filed you.", "reply": "\"The Heart. Always the Heart.\" It shudders.", "mercy": 20}
+				}
+			}
+		],
+		"spare_text": "The Archivist closes its book gently. It does not open it again.",
+		"kill_text": "The Archivist comes apart in a storm of loose pages. They settle like snow.",
+		"on_spare": {"set": {"archivist_spared": true}, "achievement": "archivist_spared"},
+		"on_kill": {"set": {"archivist_defeated": true}, "achievement": "archivist_defeated"},
+		"after_spared": "archivist_after_spared",
+		"after_killed": "archivist_after_killed"
+	}
+}

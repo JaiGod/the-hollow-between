@@ -1,0 +1,10 @@
+{
+	"dewbread": {"name": "Dewbread", "desc": "Bread baked from morning dew. Heals 15.", "heal": 15, "battle": true, "use_text": "You eat the Dewbread. It tastes like a good morning."},
+	"glowberry": {"name": "Glowberry", "desc": "Tart and faintly luminous. Heals 30.", "heal": 30, "battle": true, "use_text": "You eat the Glowberry. Your teeth glow for a second."},
+	"memory_tonic": {"name": "Memory Tonic", "desc": "Restores 50 Focus.", "focus": 50, "battle": true, "use_text": "You drink the tonic and remember something nice."},
+	"brass_gear": {"name": "Brass Gear", "desc": "Warm, as if it misses its clock.", "key": true},
+	"lantern_charm": {"name": "Lantern Charm", "desc": "Mira's charm. It points toward home.", "key": true},
+	"steady_lantern": {"name": "Steady Lantern", "desc": "Lights dark paths. Never flickers.", "key": true},
+	"blank_page": {"name": "Blank Page", "desc": "Your name at the top. Nothing else. Yet.", "key": true},
+	"burned_page": {"name": "Burned Page", "desc": "Half of your name, and a word: FILED.", "key": true}
+}

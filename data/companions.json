@@ -1,0 +1,36 @@
+{
+	"echo": {
+		"name": "Echo",
+		"role": "Living memory fragment · Healer",
+		"sprite": "echo",
+		"base_loyalty": 20,
+		"hint": "A flicker in the glade.",
+		"summon": {"text": "Echo glows and stitches your memories back together.", "effect": "heal"},
+		"personal_quest": "Chapter 2: find out who Echo used to be."
+	},
+	"clockmaker": {
+		"name": "The Clockmaker",
+		"role": "Time abilities · Puzzle expert",
+		"sprite": "clockmaker",
+		"base_loyalty": 10,
+		"hint": "Someone in Lanternrest is listening for a tick.",
+		"summon": {"text": "The Clockmaker winds a pocketwatch. The next attack drags its feet.", "effect": "slow"},
+		"personal_quest": "Chapter 2: the clock that counts backward."
+	},
+	"wanderer": {
+		"name": "The Wanderer",
+		"role": "High damage · Mysterious past",
+		"sprite": "wanderer",
+		"base_loyalty": 0,
+		"hint": "Footsteps in the Silent City. (Chapter 2)",
+		"summon": {"text": "The Wanderer strikes once. Once is enough.", "effect": "damage"}
+	},
+	"nyra": {
+		"name": "Nyra",
+		"role": "Light-based powers",
+		"sprite": "mira",
+		"base_loyalty": 0,
+		"hint": "A light in the Glass Desert. (Chapter 3)",
+		"summon": {"text": "Nyra's light shows your enemy what it really wants.", "effect": "mercy"}
+	}
+}

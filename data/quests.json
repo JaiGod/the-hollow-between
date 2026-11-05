@@ -1,0 +1,22 @@
+{
+	"lost_gear": {
+		"title": "The Stopped Clock",
+		"giver": "The Clockmaker",
+		"steps": [
+			"Find the Clockmaker's brass gear somewhere in the forest.",
+			"Bring the brass gear back to the Clockmaker in Lanternrest."
+		],
+		"done_text": "The Big Clock ticks again. Lanternrest remembers what time it is.",
+		"reward": {"xp": 15, "shards": 10, "give": {"steady_lantern": 1}, "set": {"has_lantern": true}, "loyalty": {"clockmaker": 15}}
+	},
+	"pip_home": {
+		"title": "A Light for Pip",
+		"giver": "Pip",
+		"steps": [
+			"Find someone in Lanternrest who knows Pip.",
+			"Bring Mira's lantern charm to Pip in the forest."
+		],
+		"done_text": "Pip followed the light home.",
+		"reward": {"xp": 15, "give": {"glowberry": 2}, "set": {"has_lantern": true}, "loyalty": {"echo": 10}}
+	}
+}

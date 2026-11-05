@@ -1,0 +1,36 @@
+{
+	"branches": {
+		"guardian": {
+			"name": "Guardian", "color": "#9fe0c0", "desc": "Tank. Outlast anything.",
+			"talents": [
+				{"id": "guardian_skin", "name": "Thick Skin", "desc": "+8 max HP.", "bonus": {"max_hp": 8}},
+				{"id": "guardian_shield", "name": "Energy Shield", "desc": "Unlocks Energy Shield. +1 DEF.", "requires": "guardian_skin", "unlocks": "energy_shield", "bonus": {"defense": 1}},
+				{"id": "guardian_counter", "name": "Counterweight", "desc": "DEFEND now counterattacks.", "requires": "guardian_shield", "bonus": {"defense": 1}}
+			]
+		},
+		"ranger": {
+			"name": "Ranger", "color": "#ffe08a", "desc": "Speed & dodge. Live on the edge.",
+			"talents": [
+				{"id": "ranger_feet", "name": "Light Feet", "desc": "Soul moves 20% faster.", "bonus": {"soul_speed": 30}},
+				{"id": "ranger_shave", "name": "Close Shave", "desc": "Grazing gives +3 more Focus.", "requires": "ranger_feet", "bonus": {"graze": 3}},
+				{"id": "ranger_eye", "name": "Eagle Eye", "desc": "Wider crit window, +2 ATK.", "requires": "ranger_shave", "bonus": {"crit_window": 3, "attack": 2}}
+			]
+		},
+		"mystic": {
+			"name": "Mystic", "color": "#c0a0ff", "desc": "Magic. Bend the fight.",
+			"talents": [
+				{"id": "mystic_light", "name": "Inner Light", "desc": "Specials 25% stronger.", "bonus": {"special_power": 25}},
+				{"id": "mystic_illusions", "name": "Illusions", "desc": "Unlocks Illusions.", "requires": "mystic_light", "unlocks": "illusions"},
+				{"id": "mystic_reflect", "name": "Reflection", "desc": "Unlocks Reflection.", "requires": "mystic_illusions", "unlocks": "reflection"}
+			]
+		},
+		"chronomancer": {
+			"name": "Chronomancer", "color": "#6fd3ff", "desc": "Time. Make every second yours.",
+			"talents": [
+				{"id": "chrono_slow", "name": "Time Slow", "desc": "Unlocks Time Slow.", "unlocks": "time_slow"},
+				{"id": "chrono_borrow", "name": "Borrowed Seconds", "desc": "+2 graze Focus, specials +15%.", "requires": "chrono_slow", "bonus": {"graze": 2, "special_power": 15}},
+				{"id": "chrono_wind", "name": "Second Wind", "desc": "+6 max HP, +2 ATK.", "requires": "chrono_borrow", "bonus": {"max_hp": 6, "attack": 2}}
+			]
+		}
+	}
+}

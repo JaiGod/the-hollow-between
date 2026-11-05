@@ -1,0 +1,38 @@
+{
+	"true_hope": {
+		"title": "True Hope",
+		"color": "#ffe08a",
+		"text": "The Hollow is healed. Every forgotten thing is remembered by someone.",
+		"chapter_text": "You hurt no one. You kept your promises. The forest is a little brighter where you walked, {player}, and the Archivist has started a new book — one where nothing gets erased."
+	},
+	"balance": {
+		"title": "Balance",
+		"color": "#9fe0c0",
+		"text": "The Hollow survives, but it is changed — and so are you.",
+		"chapter_text": "You did some good and some harm, like most people who are trying. The forest will remember both. The road to the Silent City is open."
+	},
+	"isolation": {
+		"title": "Isolation",
+		"color": "#8a80a8",
+		"text": "You leave everyone behind, and the Hollow forgets you in return.",
+		"chapter_text": "You walked through the forest alone and helped no one find their way. It was efficient. It was very, very quiet."
+	},
+	"corruption": {
+		"title": "Corruption",
+		"color": "#ff6a7a",
+		"text": "Power fills the space where your memories were.",
+		"chapter_text": "The Lostlings hide when you pass. The pages you carry are heavy with names you erased. You are getting stronger, {player}. You are getting harder to remember as you were."
+	},
+	"secret": {
+		"title": "The Hidden Truth",
+		"color": "#c0a0ff",
+		"text": "You learn who erased you, and why.",
+		"chapter_text": "You found the place between the between and spoke to what wasn't finished. The Archivist's blank page fills itself with one line: \"Filed by request of {player}.\" You erased yourself. Why?"
+	},
+	"developer": {
+		"title": "???",
+		"color": "#fff6d6",
+		"text": "The one who made the Hollow is still here.",
+		"chapter_text": "\"Warden. I gave you that name before I gave you anything else. You came back. Most don't.\" The Unfinished smiles, half-drawn. \"Chapter Two isn't written yet. Want to help?\""
+	}
+}
