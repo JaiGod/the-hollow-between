@@ -1,0 +1,53 @@
+{
+	"start": "a",
+	"portraits": {
+		"Echo": "echo"
+	},
+	"voices": {
+		"Echo": 1.35
+	},
+	"nodes": {
+		"a": {
+			"speaker": "",
+			"text": [
+				"The pages settle like snow.",
+				"Among them, one with your name on it — half burned. A single word survives: FILED."
+			],
+			"do": {
+				"give": {
+					"burned_page": 1
+				},
+				"record": {
+					"archivist": "killed"
+				}
+			},
+			"next": "comp"
+		},
+		"comp": {
+			"branch": [
+				{
+					"if": "party:echo",
+					"next": "echo"
+				},
+				{
+					"next": "close"
+				}
+			]
+		},
+		"echo": {
+			"speaker": "Echo",
+			"text": "{player}? ...It was scared too. Did you know that?",
+			"do": {
+				"loyalty": {
+					"echo": -15
+				}
+			},
+			"next": "close"
+		},
+		"close": {
+			"speaker": "",
+			"text": "A road of pale stone leads east, toward a city that makes no sound.",
+			"event": "chapter_end"
+		}
+	}
+}

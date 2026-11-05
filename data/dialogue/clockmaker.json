@@ -1,0 +1,214 @@
+{
+	"start": "start",
+	"portraits": {
+		"Clockmaker": "clockmaker"
+	},
+	"voices": {
+		"Clockmaker": 0.75
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "quest:lost_gear=done",
+					"next": "after"
+				},
+				{
+					"if": "quest:lost_gear=active,item:brass_gear",
+					"next": "return"
+				},
+				{
+					"if": "quest:lost_gear=active",
+					"next": "waiting"
+				},
+				{
+					"if": "item:brass_gear",
+					"next": "early"
+				},
+				{
+					"next": "meet"
+				}
+			]
+		},
+		"meet": {
+			"speaker": "Clockmaker",
+			"text": [
+				"Tick. Tock. Ah — a visitor with a heartbeat! Wonderful. Terrible timing, though.",
+				"The Big Clock has stopped. I've lost a gear — brass, about so big, very sentimental.",
+				"Since it stopped, the whole village keeps forgetting what time it is. Yesterday we had breakfast four times."
+			],
+			"choices": [
+				{
+					"text": "I'll find your gear.",
+					"do": {
+						"quest_start": "lost_gear",
+						"loyalty": {
+							"clockmaker": 5
+						}
+					},
+					"next": "accept"
+				},
+				{
+					"text": "Sounds like a you problem.",
+					"do": {
+						"loyalty": {
+							"clockmaker": -10
+						},
+						"stat": {
+							"ignored": 1
+						},
+						"record": {
+							"clockmaker": "rude"
+						}
+					},
+					"next": "rude"
+				}
+			]
+		},
+		"accept": {
+			"speaker": "Clockmaker",
+			"text": "Splendid! I last had it on a walk through the forest. East side, behind the old trees. Probably."
+		},
+		"rude": {
+			"speaker": "Clockmaker",
+			"text": [
+				"Hm. Rude, but accurate.",
+				"If you change your mind, I'll be here. Not that I'd know how long."
+			]
+		},
+		"waiting": {
+			"speaker": "Clockmaker",
+			"text": "Any luck? East side of the forest, behind the old trees. I can practically hear it ticking."
+		},
+		"early": {
+			"speaker": "Clockmaker",
+			"text": [
+				"Is that... my GEAR? In your hand? Without me even asking?",
+				"You're either very kind or very nosy. Either way: thank you!"
+			],
+			"do": {
+				"quest_start": "lost_gear"
+			},
+			"next": "fix"
+		},
+		"return": {
+			"speaker": "Clockmaker",
+			"text": "My gear! Oh, you wonderful, heartbeat-having person.",
+			"next": "fix"
+		},
+		"fix": {
+			"speaker": "Clockmaker",
+			"text": [
+				"*click* ... *whirr* ... TICK.",
+				"Listen to that. Lanternrest remembers what time it is!",
+				"Here — a Steady Lantern. It never flickers, no matter how dark the path. You'll want it if you're heading north."
+			],
+			"do": {
+				"take": {
+					"brass_gear": 1
+				},
+				"quest_complete": "lost_gear"
+			},
+			"next": "offer"
+		},
+		"offer": {
+			"branch": [
+				{
+					"if": "stat:killed>=3",
+					"next": "wary"
+				},
+				{
+					"next": "ask"
+				}
+			]
+		},
+		"ask": {
+			"speaker": "Clockmaker",
+			"text": [
+				"One more thing. A clock that ticks in one place is a sad clock.",
+				"Would you take an old tinkerer along? I'm good with puzzles. And time. Mostly time."
+			],
+			"choices": [
+				{
+					"text": "Welcome aboard.",
+					"do": {
+						"recruit": "clockmaker",
+						"loyalty": {
+							"clockmaker": 10
+						},
+						"achievement": "first_friend"
+					},
+					"next": "joined"
+				},
+				{
+					"text": "Stay and keep time here.",
+					"do": {
+						"loyalty": {
+							"clockmaker": 5
+						},
+						"record": {
+							"clockmaker_join": false
+						}
+					},
+					"next": "stay"
+				}
+			]
+		},
+		"wary": {
+			"speaker": "Clockmaker",
+			"text": [
+				"...Your hands have that dust on them. Lostling dust.",
+				"I think I'll stay with my clock. Clocks don't judge. Much."
+			],
+			"do": {
+				"record": {
+					"clockmaker_join": "refused"
+				}
+			}
+		},
+		"joined": {
+			"speaker": "Clockmaker",
+			"text": "Splendid! Let me grab my second-best screwdriver. (The Clockmaker can slow time when summoned.)",
+			"event": "refresh"
+		},
+		"stay": {
+			"speaker": "Clockmaker",
+			"text": "Ha! Very well. Someone has to remember the time."
+		},
+		"after": {
+			"branch": [
+				{
+					"if": "choice:clockmaker_join=refused",
+					"next": "after_wary"
+				},
+				{
+					"next": "after_ask"
+				}
+			]
+		},
+		"after_wary": {
+			"speaker": "Clockmaker",
+			"text": "Tick, tock. The clock works fine. Thank you for that, at least."
+		},
+		"after_ask": {
+			"speaker": "Clockmaker",
+			"text": "Back again! Changed your mind about company?",
+			"choices": [
+				{
+					"text": "Come with me.",
+					"do": {
+						"recruit": "clockmaker",
+						"loyalty": {
+							"clockmaker": 5
+						}
+					},
+					"next": "joined"
+				},
+				{
+					"text": "Just saying hello.",
+					"next": "end"
+				}
+			]
+		}
+	}
+}

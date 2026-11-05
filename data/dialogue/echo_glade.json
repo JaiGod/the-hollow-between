@@ -1,0 +1,179 @@
+{
+	"start": "start",
+	"portraits": {
+		"Echo": "echo"
+	},
+	"voices": {
+		"Echo": 1.35
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "flag:met_echo",
+					"next": "again"
+				},
+				{
+					"next": "meet"
+				}
+			]
+		},
+		"meet": {
+			"speaker": "Echo",
+			"text": [
+				"Oh! You're... solid. Nobody's been solid in a long, long time.",
+				"I'm Echo. I think I was someone's... something. A voice? A song? I'm what's left over.",
+				"You fell, didn't you. Everyone here fell. This is the Hollow Between — where forgotten things go."
+			],
+			"do": {
+				"set": {
+					"met_echo": true
+				}
+			},
+			"choices": [
+				{
+					"text": "Trust her.",
+					"do": {
+						"loyalty": {
+							"echo": 15
+						},
+						"record": {
+							"echo_first": "trust"
+						}
+					},
+					"next": "trust"
+				},
+				{
+					"text": "Ask what she really is.",
+					"do": {
+						"loyalty": {
+							"echo": 5
+						},
+						"record": {
+							"echo_first": "question"
+						}
+					},
+					"next": "question"
+				},
+				{
+					"text": "Walk away.",
+					"do": {
+						"loyalty": {
+							"echo": -10
+						},
+						"record": {
+							"echo_first": "ignore"
+						},
+						"stat": {
+							"ignored": 1
+						}
+					},
+					"next": "ignore"
+				}
+			]
+		},
+		"trust": {
+			"speaker": "Echo",
+			"text": [
+				"...You trust me? Just like that?",
+				"Okay. Okay! Then I'll be worth it."
+			],
+			"next": "tutorial"
+		},
+		"question": {
+			"speaker": "Echo",
+			"text": [
+				"What I really am? ...That's the question, huh.",
+				"When something is forgotten, a little piece stays behind. Like a footprint after the foot is gone. I'm a footprint.",
+				"But I think I'm a footprint that wants to walk somewhere."
+			],
+			"next": "tutorial"
+		},
+		"ignore": {
+			"speaker": "Echo",
+			"text": [
+				"Oh. ...That's okay. People do that a lot. Forgetting is kind of the whole thing here.",
+				"Wait — before you go. You should know something."
+			],
+			"next": "tutorial"
+		},
+		"tutorial": {
+			"speaker": "Echo",
+			"text": [
+				"North is the Whispering Path. It's full of Lostlings — memories that forgot who they belonged to.",
+				"They're scared, not cruel. If one attacks, you don't have to fight back. You can TALK to it. Really talk.",
+				"When they attack, steer your little light away from the danger. Brushing close without getting hit sharpens your Focus.",
+				"Or... you can do the other thing. But everything here remembers what you do. Everything."
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "Echo",
+			"text": "Can I come with you? I don't take up much room. I'm mostly light.",
+			"choices": [
+				{
+					"text": "Come with me.",
+					"do": {
+						"recruit": "echo",
+						"loyalty": {
+							"echo": 10
+						},
+						"record": {
+							"echo_join": true
+						},
+						"achievement": "first_friend"
+					},
+					"next": "joined"
+				},
+				{
+					"text": "I'll go alone.",
+					"do": {
+						"record": {
+							"echo_join": false
+						},
+						"set": {
+							"echo_left": true
+						},
+						"loyalty": {
+							"echo": -5
+						}
+					},
+					"next": "alone"
+				}
+			]
+		},
+		"joined": {
+			"speaker": "Echo",
+			"text": [
+				"Really?! I'll — I'll be useful, I promise.",
+				"I can mend things. Little things. Memories, mostly. (Echo can be summoned with the SPECIAL command in battle.)"
+			],
+			"event": "refresh"
+		},
+		"alone": {
+			"speaker": "Echo",
+			"text": "...Right. Of course. I'll be around. Echoes always are.",
+			"event": "refresh"
+		},
+		"again": {
+			"speaker": "Echo",
+			"text": "You came back! Do you... want me to come along after all?",
+			"choices": [
+				{
+					"text": "Let's go together.",
+					"do": {
+						"recruit": "echo",
+						"loyalty": {
+							"echo": 5
+						}
+					},
+					"next": "joined"
+				},
+				{
+					"text": "Not yet.",
+					"next": "end"
+				}
+			]
+		}
+	}
+}

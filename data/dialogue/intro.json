@@ -1,0 +1,25 @@
+{
+	"start": "a",
+	"nodes": {
+		"a": {
+			"speaker": "",
+			"text": [
+				"You remember falling.",
+				"Not from anywhere. Just... falling. The way a name falls out of your head mid-sentence.",
+				"When you open your eyes, the sky is the color of a word on the tip of your tongue."
+			],
+			"next": "b"
+		},
+		"b": {
+			"speaker": "???",
+			"portrait": "echo",
+			"text": [
+				"Hey! Over here!",
+				"...You can hear me, right? Please say you can hear me."
+			],
+			"do": {
+				"toast": "Arrow keys / WASD to move · Z to talk · C for menu"
+			}
+		}
+	}
+}

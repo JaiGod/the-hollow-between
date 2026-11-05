@@ -1,0 +1,13 @@
+{
+	"start": "a",
+	"nodes": {
+		"a": {
+			"speaker": "",
+			"text": [
+				"THE ARCHIVE",
+				"All forgotten things are filed here.",
+				"Please keep your voice down. And your memories close."
+			]
+		}
+	}
+}

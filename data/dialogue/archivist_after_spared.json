@@ -1,0 +1,88 @@
+{
+	"start": "a",
+	"portraits": {
+		"The Archivist": "archivist",
+		"Echo": "echo"
+	},
+	"voices": {
+		"The Archivist": 0.6,
+		"Echo": 1.35
+	},
+	"nodes": {
+		"a": {
+			"speaker": "The Archivist",
+			"text": [
+				"...You didn't erase me.",
+				"Do you know how long it's been since someone let a story keep going?",
+				"Take this. A blank page, with your name at the top. Write whatever you want on it."
+			],
+			"do": {
+				"give": {
+					"blank_page": 1
+				},
+				"record": {
+					"archivist": "spared"
+				}
+			},
+			"next": "truth"
+		},
+		"truth": {
+			"branch": [
+				{
+					"if": "flag:learned_filed",
+					"next": "known"
+				},
+				{
+					"next": "new"
+				}
+			]
+		},
+		"new": {
+			"speaker": "The Archivist",
+			"text": [
+				"One more thing, {player}. You aren't lost.",
+				"You were FILED. On purpose. By request."
+			],
+			"next": "road"
+		},
+		"known": {
+			"speaker": "The Archivist",
+			"text": [
+				"You heard me before. You were filed on purpose, by request.",
+				"Whose request... is written at the Heart of the Hollow."
+			],
+			"next": "road"
+		},
+		"road": {
+			"speaker": "The Archivist",
+			"text": "The Silent City lies beyond these shelves. Go. And... come back and tell me how it ends?",
+			"next": "comp"
+		},
+		"comp": {
+			"branch": [
+				{
+					"if": "party:echo",
+					"next": "echo"
+				},
+				{
+					"next": "close"
+				}
+			]
+		},
+		"echo": {
+			"speaker": "Echo",
+			"text": "{player}... whatever's waiting at the Heart, we'll face it together. Right?",
+			"do": {
+				"loyalty": {
+					"echo": 10
+				}
+			},
+			"next": "close"
+		},
+		"close": {
+			"speaker": "",
+			"text": "The shelves part, revealing a road of pale stone leading east.",
+			"event": "chapter_end"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"start": "a",
+	"nodes": {
+		"a": {
+			"speaker": "",
+			"text": [
+				"Three stones keep the old seasons.",
+				"Winter sleeps in the west. Spring wakes in the east. Summer waits by the water.",
+				"Wake them in the order the year turns."
+			]
+		}
+	}
+}

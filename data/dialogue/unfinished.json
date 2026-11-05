@@ -1,0 +1,168 @@
+{
+	"start": "start",
+	"portraits": {
+		"The Unfinished": "unfinished"
+	},
+	"voices": {
+		"The Unfinished": 1.0
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "flag:unfinished_done",
+					"next": "after"
+				},
+				{
+					"if": "flag:unfinished_met",
+					"next": "q"
+				},
+				{
+					"next": "meet"
+				}
+			]
+		},
+		"meet": {
+			"speaker": "The Unfinished",
+			"text": [
+				"Oh. You found the part that isn't finished yet.",
+				"Don't look too closely. Some of me is still placeholder."
+			],
+			"do": {
+				"set": {
+					"unfinished_met": true
+				}
+			},
+			"next": "warden_check"
+		},
+		"warden_check": {
+			"branch": [
+				{
+					"if": "flag:name_warden",
+					"next": "warden"
+				},
+				{
+					"next": "ask"
+				}
+			]
+		},
+		"warden": {
+			"speaker": "The Unfinished",
+			"text": [
+				"...Warden. That name. I was going to give it to someone.",
+				"Did you choose it? Or did it choose you?"
+			],
+			"next": "ask"
+		},
+		"ask": {
+			"speaker": "The Unfinished",
+			"text": "You can ask me things. Three things. That's the budget.",
+			"next": "q"
+		},
+		"q": {
+			"speaker": "The Unfinished",
+			"text": "Well?",
+			"choices": [
+				{
+					"text": "What is the Hollow?",
+					"if": "!flag:asked_hollow",
+					"do": {
+						"set": {
+							"asked_hollow": true
+						},
+						"stat": {
+							"unfinished_asked": 1
+						}
+					},
+					"next": "a_hollow"
+				},
+				{
+					"text": "Who are you?",
+					"if": "!flag:asked_who",
+					"do": {
+						"set": {
+							"asked_who": true
+						},
+						"stat": {
+							"unfinished_asked": 1
+						}
+					},
+					"next": "a_who"
+				},
+				{
+					"text": "Why was I forgotten?",
+					"if": "!flag:asked_why",
+					"do": {
+						"set": {
+							"asked_why": true
+						},
+						"stat": {
+							"unfinished_asked": 1
+						}
+					},
+					"next": "a_why"
+				},
+				{
+					"text": "That's all.",
+					"next": "bye"
+				}
+			]
+		},
+		"a_hollow": {
+			"speaker": "The Unfinished",
+			"text": [
+				"Every story somebody started and didn't finish ends up somewhere.",
+				"This is somewhere."
+			],
+			"next": "check"
+		},
+		"a_who": {
+			"speaker": "The Unfinished",
+			"text": [
+				"I'm the one who started this story.",
+				"I got distracted. Life does that. So it waited here, half-drawn, hoping."
+			],
+			"next": "check"
+		},
+		"a_why": {
+			"speaker": "The Unfinished",
+			"text": [
+				"That's the question the whole Hollow is built around.",
+				"A hint: nobody forgot you by accident."
+			],
+			"next": "check"
+		},
+		"check": {
+			"branch": [
+				{
+					"if": "stat:unfinished_asked>=3",
+					"next": "done"
+				},
+				{
+					"next": "q"
+				}
+			]
+		},
+		"bye": {
+			"speaker": "The Unfinished",
+			"text": "Come back. I'm not going anywhere. I literally can't."
+		},
+		"done": {
+			"speaker": "The Unfinished",
+			"text": [
+				"That's the budget. Thank you for asking. Most people just walk past.",
+				"A secret, for the secret-finder: when this chapter ends, begin again — and use the name I almost gave."
+			],
+			"do": {
+				"secret": "unfinished",
+				"set": {
+					"unfinished_done": true
+				}
+			}
+		},
+		"after": {
+			"speaker": "The Unfinished",
+			"text": "The Unfinished waves. Part of its hand isn't drawn yet."
+		}
+	}
+}

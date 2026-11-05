@@ -1,0 +1,66 @@
+{
+	"start": "a",
+	"portraits": {
+		"Echo": "echo"
+	},
+	"voices": {
+		"Echo": 1.35
+	},
+	"nodes": {
+		"a": {
+			"speaker": "Echo",
+			"text": [
+				"Hi. I, um, followed you. A little. From a distance.",
+				"I know you said alone. But it's really, really quiet out here."
+			],
+			"choices": [
+				{
+					"text": "Fine. Come on.",
+					"do": {
+						"recruit": "echo",
+						"set": {
+							"echo_rejoined": true
+						},
+						"loyalty": {
+							"echo": 15
+						},
+						"achievement": "first_friend"
+					},
+					"next": "yes"
+				},
+				{
+					"text": "I meant it.",
+					"do": {
+						"set": {
+							"echo_rejoined": true,
+							"echo_gone": true
+						},
+						"loyalty": {
+							"echo": -20
+						},
+						"stat": {
+							"ignored": 1
+						},
+						"record": {
+							"echo_rejected": true
+						}
+					},
+					"next": "no"
+				}
+			]
+		},
+		"yes": {
+			"speaker": "Echo",
+			"text": "I won't make you regret it. Probably!",
+			"event": "refresh"
+		},
+		"no": {
+			"speaker": "Echo",
+			"text": [
+				"Okay. I'll stop following.",
+				"Goodbye, {player}. I hope somebody remembers you."
+			],
+			"event": "refresh"
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"start": "start",
+	"portraits": {
+		"Oskar": "villager"
+	},
+	"voices": {
+		"Oskar": 0.85
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "stat:killed>=2",
+					"next": "fear"
+				},
+				{
+					"next": "lore"
+				}
+			]
+		},
+		"lore": {
+			"speaker": "Oskar",
+			"text": [
+				"You're new. You've got that look. Like you walked into a room and forgot why.",
+				"North of the forest is the Archive. The Archivist keeps records of everything forgotten.",
+				"Folks say once something's filed... it's erased. Gone from the Hollow, even.",
+				"Me, I keep a list of things I want to remember. Item one: don't go north."
+			],
+			"do": {
+				"set": {
+					"heard_archivist": true
+				}
+			}
+		},
+		"fear": {
+			"speaker": "Oskar",
+			"text": [
+				"...Ah. You're the one.",
+				"The Lostlings have been whispering. Said someone's been erasing them.",
+				"I'd ask you not to erase me, but I suppose asking hasn't stopped you."
+			]
+		}
+	}
+}

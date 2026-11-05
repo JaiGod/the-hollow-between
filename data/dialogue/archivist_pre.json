@@ -1,0 +1,78 @@
+{
+	"start": "start",
+	"portraits": {
+		"The Archivist": "archivist",
+		"Echo": "echo",
+		"Clockmaker": "clockmaker"
+	},
+	"voices": {
+		"The Archivist": 0.6,
+		"Echo": 1.35,
+		"Clockmaker": 0.75
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "flag:archivist_met",
+					"next": "short"
+				},
+				{
+					"next": "first"
+				}
+			]
+		},
+		"first": {
+			"speaker": "The Archivist",
+			"text": [
+				"Ah. A new entry. Come closer — the light is better for reading.",
+				"{player}. Fell from nowhere. Woke in the glade. Spared: {spared}. Erased: {killed}.",
+				"You're wondering how I know. I know everything that's forgotten. And you, {player}, have been forgotten very thoroughly."
+			],
+			"do": {
+				"set": {
+					"archivist_met": true
+				}
+			},
+			"next": "companions"
+		},
+		"companions": {
+			"branch": [
+				{
+					"if": "party:echo",
+					"next": "echo_line"
+				},
+				{
+					"if": "party:clockmaker",
+					"next": "clock_line"
+				},
+				{
+					"next": "alone_line"
+				}
+			]
+		},
+		"echo_line": {
+			"speaker": "Echo",
+			"text": "Don't listen to it, {player}. We're not entries. We're people. ...Mostly.",
+			"next": "final"
+		},
+		"clock_line": {
+			"speaker": "Clockmaker",
+			"text": "Old friend. You've been keeping time with dust for far too long.",
+			"next": "final"
+		},
+		"alone_line": {
+			"speaker": "The Archivist",
+			"text": "No companions? Even your page is lonely.",
+			"next": "final"
+		},
+		"final": {
+			"speaker": "The Archivist",
+			"text": "Let us see how your story ends."
+		},
+		"short": {
+			"speaker": "The Archivist",
+			"text": "Back again. Let us read from where we left off."
+		}
+	}
+}

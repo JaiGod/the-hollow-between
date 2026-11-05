@@ -1,0 +1,62 @@
+{
+	"start": "start",
+	"portraits": {
+		"Mira": "mira"
+	},
+	"voices": {
+		"Mira": 1.15
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "flag:pip_home",
+					"next": "after"
+				},
+				{
+					"if": "item:lantern_charm",
+					"next": "waiting"
+				},
+				{
+					"if": "quest:pip_home=active",
+					"next": "learn"
+				},
+				{
+					"next": "idle"
+				}
+			]
+		},
+		"idle": {
+			"speaker": "Mira",
+			"text": [
+				"Evening. Or morning. Hard to tell; the Big Clock stopped.",
+				"I light the lanterns so people can find their way back. Not many come back, these days."
+			]
+		},
+		"learn": {
+			"speaker": "Mira",
+			"text": [
+				"Pip? You met a boy named Pip?",
+				"...I had a little brother. I'd forgotten his face. I'd forgotten I'd forgotten.",
+				"Take my lantern charm. If it's really him, he'll know this light."
+			],
+			"do": {
+				"give": {
+					"lantern_charm": 1
+				},
+				"quest_advance": "pip_home"
+			}
+		},
+		"waiting": {
+			"speaker": "Mira",
+			"text": "Please hurry. The forest makes forgetting easy."
+		},
+		"after": {
+			"speaker": "Mira",
+			"text": [
+				"He came home. He's asleep upstairs, holding my old blanket.",
+				"You gave me back something I didn't know I'd lost. Lanternrest won't forget that."
+			]
+		}
+	}
+}

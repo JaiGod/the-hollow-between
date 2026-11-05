@@ -1,0 +1,54 @@
+{
+	"start": "a",
+	"portraits": {
+		"Juniper": "villager"
+	},
+	"voices": {
+		"Juniper": 1.25
+	},
+	"nodes": {
+		"a": {
+			"speaker": "Juniper",
+			"text": [
+				"Hello! I was going to say something important. It's gone now. Oh well, it's the Hollow.",
+				"Want some Dewbread? Baked fresh this morning. Or this evening. Whenever."
+			],
+			"choices": [
+				{
+					"text": "Buy Dewbread (5 shards)",
+					"if": "shards>=5",
+					"do": {
+						"shards": -5,
+						"give": {
+							"dewbread": 1
+						}
+					},
+					"next": "bought"
+				},
+				{
+					"text": "Buy Memory Tonic (12 shards)",
+					"if": "shards>=12",
+					"do": {
+						"shards": -12,
+						"give": {
+							"memory_tonic": 1
+						}
+					},
+					"next": "bought"
+				},
+				{
+					"text": "Just browsing.",
+					"next": "bye"
+				}
+			]
+		},
+		"bought": {
+			"speaker": "Juniper",
+			"text": "Pleasure doing business! I'll forget it happened, but I'll feel good about it."
+		},
+		"bye": {
+			"speaker": "Juniper",
+			"text": "Come back soon! I'll pretend to remember you."
+		}
+	}
+}

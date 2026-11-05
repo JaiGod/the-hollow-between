@@ -1,0 +1,92 @@
+{
+	"start": "start",
+	"portraits": {
+		"Pip": "pip"
+	},
+	"voices": {
+		"Pip": 1.6
+	},
+	"nodes": {
+		"start": {
+			"branch": [
+				{
+					"if": "item:lantern_charm",
+					"next": "charm"
+				},
+				{
+					"if": "quest:pip_home=active",
+					"next": "waiting"
+				},
+				{
+					"next": "meet"
+				}
+			]
+		},
+		"meet": {
+			"speaker": "Pip",
+			"text": [
+				"(sniff)... Are you a grown-up? You look like a grown-up.",
+				"I can't find my way home. Home has a lantern on it. And my sister. I think I had a sister."
+			],
+			"choices": [
+				{
+					"text": "I'll help you find her.",
+					"do": {
+						"quest_start": "pip_home",
+						"record": {
+							"pip": "help"
+						},
+						"loyalty": {
+							"echo": 5
+						}
+					},
+					"next": "help"
+				},
+				{
+					"text": "Not right now.",
+					"do": {
+						"stat": {
+							"ignored": 1
+						},
+						"record": {
+							"pip": "ignore"
+						}
+					},
+					"next": "ignore"
+				}
+			]
+		},
+		"help": {
+			"speaker": "Pip",
+			"text": "Really? Her light was orange. Like a sunset that stayed."
+		},
+		"ignore": {
+			"speaker": "Pip",
+			"text": "...Okay. I'll just wait here. I'm good at waiting."
+		},
+		"waiting": {
+			"speaker": "Pip",
+			"text": "Did you find her? Orange light. Like a sunset that stayed."
+		},
+		"charm": {
+			"speaker": "Pip",
+			"text": [
+				"That's... that's HER light! I remember! Mira! My sister is Mira!",
+				"I can see the way now. Thank you, {player}. I won't forget you. I promise I won't."
+			],
+			"do": {
+				"take": {
+					"lantern_charm": 1
+				},
+				"quest_complete": "pip_home",
+				"set": {
+					"pip_home": true
+				},
+				"record": {
+					"pip": "home"
+				}
+			},
+			"event": "refresh"
+		}
+	}
+}
