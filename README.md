@@ -136,6 +136,7 @@ Web build: `godot --headless --path . --export-release "Web" build/web/index.htm
 - **Polish pass.** Companions now stand behind you when a map loads instead of stacking on the player; area titles got an outline so they read over bright tiles; the title layout was tightened.
 - **Web build.** Exported with threads disabled so it runs on GitHub Pages without COOP/COEP headers; the "Quit" button hides on web and mobile.
 - **Recovery (Nov 2026).** The original repository lived on a GitHub account that was suspended. The project was rebuilt file-by-file from the development transcript, re-validated with Godot 4.4.1 (smoke test 92/92), re-exported for Web and re-published here under **JaiGod** with a landing page and a Pages workflow. The gameplay trailer and GIF from the first release were not recoverable.
+- **Beta tested on the live site ✅ (Nov 5, 2026).** On https://jaigod.github.io/the-hollow-between/play/ the Web build boots past the loading bar to the title screen. Played through naming, the intro, recruiting Echo, walking up the Whispering Path into a Lostling battle, using TALK, and dodging an orbit pattern (HP and Focus update). No game errors in the console; the only 404 is the browser's automatic `/favicon.ico` request. The landing page has no horizontal overflow, and the CI run (smoke test, Web export, deploy) is green.
 
 ## 🗺 Roadmap
 
