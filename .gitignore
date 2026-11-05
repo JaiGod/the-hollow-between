@@ -1,0 +1,20 @@
+# Godot
+.godot/
+*.import
+export_credentials.cfg
+build/
+*.tmp
+
+# Android
+android/build/
+*.keystore
+*.jks
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Steam
+steam_appid.txt

@@ -1,0 +1,53 @@
+; Engine configuration file.
+; The Hollow Between — Godot 4.4+
+
+config_version=5
+
+[application]
+
+config/name="The Hollow Between"
+config/description="A story-rich pixel RPG about a world built from lost memories."
+config/version="0.1.0"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.03, 0.02, 0.06, 1)
+boot_splash/show_image=false
+
+[autoload]
+
+Events="*res://scripts/autoload/Events.gd"
+InputConfig="*res://scripts/autoload/InputConfig.gd"
+DB="*res://scripts/autoload/DB.gd"
+GameState="*res://scripts/autoload/GameState.gd"
+SaveManager="*res://scripts/autoload/SaveManager.gd"
+AudioManager="*res://scripts/autoload/AudioManager.gd"
+Achievements="*res://scripts/autoload/Achievements.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/handheld/orientation=0
+
+[gui]
+
+theme/default_font_antialiasing=0
+theme/default_font_size=16
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=false
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+environment/defaults/default_clear_color=Color(0.03, 0.02, 0.06, 1)
+textures/vram_compression/import_etc2_astc=true
