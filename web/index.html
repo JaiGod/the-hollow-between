@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hollow Between — a Godot 4 pixel RPG</title>
+<meta name="description" content="A story-rich pixel RPG about a world made of everything that was forgotten. Bullet-hell battles, mercy, choices that matter, six endings. Play free in your browser.">
+<meta name="theme-color" content="#0b0716">
+<link rel="icon" href="play/index.icon.png">
+<style>
+:root{--bg:#0b0716;--panel:#16102a;--line:#3a2f63;--ink:#ece6ff;--dim:#a99fd0;--gold:#f6d26b;--mint:#8fe3c3;--violet:#b48cff}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 16px 48px}
+header{text-align:center;padding:72px 0 28px}
+.eyebrow{letter-spacing:.25em;text-transform:uppercase;color:var(--dim);font-size:12px}
+h1{font-size:clamp(34px,8vw,64px);line-height:1.05;margin:12px 0 10px;letter-spacing:.04em;text-shadow:0 0 24px #7b5cff66}
+.tag{color:var(--violet);font-size:clamp(16px,3.6vw,20px);margin:0 0 30px}
+.play{display:inline-flex;align-items:center;gap:12px;padding:18px 40px;font-size:22px;font-weight:700;color:#1b1030;background:linear-gradient(180deg,#ffe48f,var(--gold));border:3px solid #fff3c4;border-radius:14px;text-decoration:none;box-shadow:0 0 0 4px #f6d26b33,0 10px 40px #f6d26b44;transition:transform .15s ease,box-shadow .15s ease}
+.play:hover,.play:focus-visible{transform:translateY(-2px) scale(1.03);box-shadow:0 0 0 6px #f6d26b55,0 14px 50px #f6d26b66;outline:none}
+.play .tri{font-size:26px}
+.sub{margin-top:14px;color:var(--dim);font-size:14px}
+.sub a{color:var(--mint)}
+.hero{margin:36px auto 0;border:3px solid var(--line);border-radius:12px;overflow:hidden;max-width:820px;box-shadow:0 20px 60px #0008}
+.hero img{display:block;width:100%;height:auto;image-rendering:pixelated}
+section{margin-top:56px}
+h2{font-size:24px;margin:0 0 16px;color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:16px}
+.card b{color:var(--mint)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.shots figure{margin:0;background:var(--panel);border:2px solid var(--line);border-radius:10px;overflow:hidden}
+.shots img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.shots figcaption{padding:8px 12px;font-size:14px;color:var(--dim)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--gold);white-space:nowrap;width:1%}
+kbd{background:#241a44;border:1px solid var(--line);border-bottom-width:3px;border-radius:5px;padding:1px 6px;font-size:13px}
+footer{text-align:center;color:var(--dim);font-size:14px;margin-top:64px}
+footer a{color:var(--mint)}
+@media (prefers-reduced-motion:reduce){.play{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<main>
+<header>
+  <div class="eyebrow">Chapter One · The Memory Forest</div>
+  <h1>THE HOLLOW BETWEEN</h1>
+  <p class="tag">a world made of what everyone forgot</p>
+  <a class="play" href="play/"><span class="tri">▶</span> Play in browser</a>
+  <p class="sub">Free · no install · keyboard, gamepad or touch · ~30–45 min · <a href="https://github.com/JaiGod/the-hollow-between">source on GitHub</a></p>
+  <div class="hero"><img src="screenshots/12_archivist_pages.png" width="640" height="360" alt="Boss fight: the Archivist throws pages bearing words from your own history while your soul dodges inside the battle box"></div>
+</header>
+
+<section>
+  <h2>You fell into the place where forgotten things go.</h2>
+  <p>Lost memories, unfinished stories, people nobody thinks about anymore — they all end up in the Hollow Between. Every NPC has a secret, every enemy has a story, and every choice you make is remembered. Spare them by learning who they were… or don't, and watch the world notice.</p>
+</section>
+
+<section>
+  <h2>Features</h2>
+  <div class="grid">
+    <div class="card"><b>Bullet-hell defense</b><br>Steer your soul through 8 attack patterns — orbit rings, beams, mines, gravity zones and more. Grazing bullets builds Focus.</div>
+    <div class="card"><b>Talk, don't fight</b><br>Reason, Joke, Comfort, Intimidate or Question. Every enemy reacts differently; full pacifist runs are possible.</div>
+    <div class="card"><b>The Archivist</b><br>A three-phase boss that reads your kill count back to you and attacks with words from your own playthrough.</div>
+    <div class="card"><b>Choices that matter</b><br>Companions with loyalty, two quests, a puzzle, a secret area — and six endings decided by everything you did.</div>
+    <div class="card"><b>Skill trees</b><br>Guardian, Ranger, Mystic and Chronomancer. Mix freely for hybrid builds and unlock Specials.</div>
+    <div class="card"><b>All made in code</b><br>Pixel art is defined as text, chiptune music is synthesized at runtime. Zero external assets.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Screenshots</h2>
+  <div class="shots">
+    <figure><img src="screenshots/12_archivist_pages.png" width="640" height="360" loading="lazy" alt="The Archivist boss fight"><figcaption>The Archivist — pages bearing words from your history</figcaption></figure>
+    <figure><img src="screenshots/01_title.png" width="640" height="360" loading="lazy" alt="Title screen"><figcaption>Title — changes once you've seen an ending</figcaption></figure>
+    <figure><img src="screenshots/11_soul_orbit.png" width="640" height="360" loading="lazy" alt="Soul phase with a closing orbit ring"><figcaption>Soul phase — find the gap in the ring</figcaption></figure>
+    <figure><img src="screenshots/16_ending.png" width="640" height="360" loading="lazy" alt="The Balance ending screen"><figcaption>Six endings, decided by everything you did</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2>Controls</h2>
+  <table>
+    <tr><td>Move</td><td><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> · on-screen D-pad on phones</td></tr>
+    <tr><td>Confirm / talk</td><td><kbd>Z</kbd> or <kbd>Enter</kbd></td></tr>
+    <tr><td>Cancel / run</td><td><kbd>X</kbd> or <kbd>Shift</kbd> (hold to run)</td></tr>
+    <tr><td>Menu</td><td><kbd>C</kbd> or <kbd>Esc</kbd> — status, quests, party, talents, items, settings (sound)</td></tr>
+  </table>
+  <p class="sub" style="text-align:left">Progress saves at glowing lanterns (3 slots + autosave), stored in your browser.</p>
+</section>
+
+<section style="text-align:center">
+  <a class="play" href="play/"><span class="tri">▶</span> Play now</a>
+</section>
+
+<footer>
+  Made by Jaineil Rana (JaKing) · part of <a href="https://github.com/JaiGod">JaiGod</a> · built with Godot 4.4 · MIT licensed
+</footer>
+</main>
+<script>
+(function(){
+  var c=document.getElementById('stars'),x=c.getContext('2d'),s=[],w,h,r=window.devicePixelRatio||1;
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){w=c.width=innerWidth*r;h=c.height=innerHeight*r;s=[];for(var i=0;i<140;i++)s.push({x:Math.random()*w,y:Math.random()*h,z:Math.random()*2+0.5,p:Math.random()*6.28})}
+  function draw(t){x.clearRect(0,0,w,h);for(var i=0;i<s.length;i++){var o=s[i];var a=0.35+0.35*Math.sin(o.p+t/900*o.z);x.fillStyle='rgba(200,185,255,'+a+')';x.fillRect(o.x,o.y,o.z*r,o.z*r);if(!still){o.y+=0.06*o.z*r;if(o.y>h)o.y=0}}if(!still)requestAnimationFrame(draw)}
+  addEventListener('resize',size);size();requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
