@@ -1,0 +1,206 @@
+{
+	"name": "Whispering Path",
+	"region": "Memory Forest",
+	"music": "forest",
+	"outdoor": true,
+	"tint": "#dfe8ff",
+	"weather": "fireflies",
+	"tiles": [
+		"#####################,,#################",
+		"####################.,,.################",
+		"###########\"\"......,,,,......###########",
+		"#########\"\"........,..,........\"\"#######",
+		"####.......::.....,,..,,...........#####",
+		"###.........:....,,....,,.............##",
+		"##.........,,,,,,,......,,,,,,,,,,,,,,,,",
+		"##........,,.....................\"\"...,,",
+		"##.......,,....~~~~.......:::.........##",
+		"###..t...,,...~~~~~~......:::.....\"\"..##",
+		",,,,,,,,,,,...~~~~~~~...........##....##",
+		"###......,,....~~~~~...........####...##",
+		"###..\"\"...,,.......=.............##...##",
+		"####.......,,,,,,,,=,,,,,,......\"\"....##",
+		"#####..............~...,,.............##",
+		"######...\"\"........~....,,....:::....###",
+		"#######............~.....,,..::::...####",
+		"#########.........~~~.....,,.......#####",
+		"##############...~~~~~....,,.....#######",
+		"##########################,,############"
+	],
+	"spawns": {
+		"from_glade": [
+			26,
+			18,
+			"up"
+		],
+		"from_village": [
+			38,
+			6,
+			"left"
+		],
+		"from_grove": [
+			21,
+			1,
+			"down"
+		],
+		"from_hollow": [
+			2,
+			10,
+			"right"
+		]
+	},
+	"exits": [
+		{
+			"rect": [
+				26,
+				19,
+				2,
+				1
+			],
+			"to": "glade_of_waking",
+			"spawn": "from_forest"
+		},
+		{
+			"rect": [
+				39,
+				6,
+				1,
+				2
+			],
+			"to": "lanternrest",
+			"spawn": "from_forest"
+		},
+		{
+			"rect": [
+				21,
+				0,
+				2,
+				1
+			],
+			"to": "archivist_grove",
+			"spawn": "from_forest",
+			"if": "flag:has_lantern",
+			"blocked": [
+				"The path north is pitch black. The trees lean in, whispering.",
+				"You'll need a light that doesn't flicker. Maybe someone in Lanternrest has one."
+			]
+		},
+		{
+			"rect": [
+				0,
+				10,
+				1,
+				1
+			],
+			"to": "hidden_hollow",
+			"spawn": "start"
+		}
+	],
+	"entities": [
+		{
+			"type": "sign",
+			"id": "stones_sign",
+			"x": 7,
+			"y": 7,
+			"dialogue": "sign_stones"
+		},
+		{
+			"type": "stone",
+			"id": "stone_west",
+			"puzzle": "forest_stones",
+			"order": 1,
+			"count": 3,
+			"x": 4,
+			"y": 5,
+			"solved_flag": "puzzle.forest_stones",
+			"solved_text": [
+				"The three stones sing a single note together.",
+				"To the west, the brambles unravel like old string."
+			]
+		},
+		{
+			"type": "stone",
+			"id": "stone_east",
+			"puzzle": "forest_stones",
+			"order": 2,
+			"count": 3,
+			"x": 14,
+			"y": 4,
+			"solved_flag": "puzzle.forest_stones"
+		},
+		{
+			"type": "stone",
+			"id": "stone_water",
+			"puzzle": "forest_stones",
+			"order": 3,
+			"count": 3,
+			"x": 13,
+			"y": 12,
+			"solved_flag": "puzzle.forest_stones"
+		},
+		{
+			"type": "blocker",
+			"id": "brambles",
+			"x": 2,
+			"y": 10,
+			"unless": "flag:puzzle.forest_stones",
+			"text": "Thick brambles, woven tight. Something about them feels deliberate, like a lock."
+		},
+		{
+			"type": "npc",
+			"id": "pip",
+			"sprite": "pip",
+			"x": 31,
+			"y": 15,
+			"float": true,
+			"dialogue": "pip",
+			"if": "!flag:pip_home"
+		},
+		{
+			"type": "item",
+			"id": "gear",
+			"item": "brass_gear",
+			"sprite": "gear",
+			"x": 36,
+			"y": 11,
+			"text": "A brass gear, warm as a hand. It ticks once, hopefully.",
+			"do": {
+				"quest_advance": "lost_gear"
+			}
+		},
+		{
+			"type": "enemy",
+			"id": "fp_lostling_a",
+			"enemy": "lostling",
+			"x": 16,
+			"y": 6,
+			"wander": 28
+		},
+		{
+			"type": "enemy",
+			"id": "fp_lostling_b",
+			"enemy": "lostling",
+			"x": 26,
+			"y": 9,
+			"wander": 22
+		},
+		{
+			"type": "enemy",
+			"id": "fp_moth",
+			"enemy": "thornmoth",
+			"x": 30,
+			"y": 4,
+			"wander": 30
+		},
+		{
+			"type": "npc",
+			"id": "echo_path",
+			"sprite": "echo",
+			"x": 24,
+			"y": 15,
+			"float": true,
+			"dialogue": "echo_path",
+			"if": "!party:echo,flag:echo_left,!flag:echo_rejoined"
+		}
+	]
+}

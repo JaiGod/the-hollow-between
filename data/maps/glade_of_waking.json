@@ -1,0 +1,87 @@
+{
+	"name": "Glade of Waking",
+	"region": "Memory Forest",
+	"music": "forest",
+	"outdoor": true,
+	"tint": "#e8f0ff",
+	"weather": "motes",
+	"tiles": [
+		"##########,,##############",
+		"#########.,,.#############",
+		"#######\"\".,,..\"\"##########",
+		"#####\"\"...,,....\"\"..######",
+		"####\"\"....,,.......\"\".####",
+		"###\"...:::.,,....:...\"\".##",
+		"###....::::.,,......::..##",
+		"##.....:...,,,,.........##",
+		"##........,,..,,........##",
+		"##...~~~..,....,....\"\"..##",
+		"##..~~~~~.,....,........##",
+		"##...~~~...,..,....:....##",
+		"###.........,,.....:::.###",
+		"###..\"\"............::..###",
+		"####..\"\"..........\"\"..####",
+		"#####.......\"\"......######",
+		"########.........#########",
+		"##########################"
+	],
+	"spawns": {
+		"start": [
+			12,
+			11,
+			"up"
+		],
+		"from_forest": [
+			10,
+			1,
+			"down"
+		]
+	},
+	"exits": [
+		{
+			"rect": [
+				10,
+				0,
+				2,
+				1
+			],
+			"to": "forest_path",
+			"spawn": "from_glade"
+		}
+	],
+	"entities": [
+		{
+			"type": "npc",
+			"id": "echo_glade",
+			"sprite": "echo",
+			"x": 15,
+			"y": 9,
+			"float": true,
+			"dialogue": "echo_glade",
+			"if": "!party:echo,!flag:echo_left"
+		},
+		{
+			"type": "sign",
+			"id": "glade_sign",
+			"x": 8,
+			"y": 3,
+			"dialogue": "sign_glade"
+		},
+		{
+			"type": "save",
+			"id": "glade_lantern",
+			"x": 17,
+			"y": 12,
+			"text": "A lantern burns without fuel. It feels like someone is remembering you."
+		},
+		{
+			"type": "item",
+			"id": "glade_berry",
+			"item": "glowberry",
+			"sprite": "shard",
+			"x": 21,
+			"y": 13,
+			"text": "Tucked in the flowers: a Glowberry."
+		}
+	]
+}

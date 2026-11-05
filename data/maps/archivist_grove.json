@@ -1,0 +1,88 @@
+{
+	"name": "The Archive Grove",
+	"region": "Memory Forest",
+	"music": "forest",
+	"outdoor": false,
+	"tint": "#d8c8b8",
+	"weather": "ink",
+	"tiles": [
+		"##########################",
+		"##bbbbbbbbbbbbbbbbbbbbbb##",
+		"##bppppppppppppppppppppb##",
+		"##bpppppbbbppppbbbpppppb##",
+		"##bppppppppppppppppppppb##",
+		"##bpppbpppppppppppppbppb##",
+		"##bpppbppppppppppppbpppb##",
+		"##bppppppppppppppppppppb##",
+		"###bpppppppppppppppppbb###",
+		"####bbbpppppppppppbbb#####",
+		"######bpppppppppppb#######",
+		"######b...........b#######",
+		"#######....,,,....########",
+		"########...,,,...#########",
+		"#########..,,,..##########",
+		"##########.,,,.###########",
+		"###########,,,############",
+		"###########,,,############"
+	],
+	"spawns": {
+		"from_forest": [
+			12,
+			16,
+			"up"
+		]
+	},
+	"exits": [
+		{
+			"rect": [
+				11,
+				17,
+				3,
+				1
+			],
+			"to": "forest_path",
+			"spawn": "from_grove"
+		}
+	],
+	"entities": [
+		{
+			"type": "save",
+			"id": "grove_lantern",
+			"x": 9,
+			"y": 12,
+			"text": "A lantern among the books. The pages nearby are blank, as if waiting for you."
+		},
+		{
+			"type": "enemy",
+			"id": "grove_shade_a",
+			"enemy": "ink_shade",
+			"x": 7,
+			"y": 7,
+			"wander": 26
+		},
+		{
+			"type": "enemy",
+			"id": "grove_shade_b",
+			"enemy": "ink_shade",
+			"x": 18,
+			"y": 7,
+			"wander": 26
+		},
+		{
+			"type": "enemy",
+			"id": "archivist",
+			"enemy": "archivist",
+			"x": 12,
+			"y": 3,
+			"wander": 0,
+			"dialogue": "archivist_pre"
+		},
+		{
+			"type": "sign",
+			"id": "grove_sign",
+			"x": 15,
+			"y": 10,
+			"dialogue": "sign_grove"
+		}
+	]
+}

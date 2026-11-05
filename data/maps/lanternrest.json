@@ -1,0 +1,100 @@
+{
+	"name": "Lanternrest",
+	"region": "Memory Forest",
+	"music": "village",
+	"outdoor": true,
+	"tint": "#fff4e8",
+	"weather": "fireflies",
+	"tiles": [
+		"##################################",
+		"##rrrrrr####rrrrrrrr####rrrrrr####",
+		"##rrrrrr####rrrrrrrr####rrrrrr####",
+		"##hhhdhh####hhhhdhhh####hhdhhh####",
+		"##..,...\"\"...,,,,,,,...\"\"..,...\"##",
+		"#...,,,,,,,,,ffffffff,,,,,,,.....#",
+		"#.......,,..ffffffffff..,,.......#",
+		",,,,,,,,,...ffffffffff...,.......#",
+		",,.....,....ffffffffff...,...rrrr#",
+		"#.....,.....ffffffffff...,...rrrr#",
+		"#....,.......ffffffff....,...hdhh#",
+		"#...\"\"....,,,,,,,,,,,,,,,,,,,,,..#",
+		"#.....::.................\"\".....##",
+		"##....::....~~~~~....\"\"........###",
+		"###........~~~~~~~...........#####",
+		"#####.......~~~~~..........#######",
+		"##################################"
+	],
+	"spawns": {
+		"from_forest": [
+			1,
+			7,
+			"right"
+		]
+	},
+	"exits": [
+		{
+			"rect": [
+				0,
+				7,
+				1,
+				2
+			],
+			"to": "forest_path",
+			"spawn": "from_village"
+		}
+	],
+	"entities": [
+		{
+			"type": "npc",
+			"id": "clockmaker",
+			"sprite": "clockmaker",
+			"x": 16,
+			"y": 4,
+			"dialogue": "clockmaker",
+			"if": "!party:clockmaker",
+			"face": true
+		},
+		{
+			"type": "npc",
+			"id": "mira",
+			"sprite": "mira",
+			"x": 26,
+			"y": 6,
+			"dialogue": "mira",
+			"face": true
+		},
+		{
+			"type": "npc",
+			"id": "oskar",
+			"sprite": "villager",
+			"x": 6,
+			"y": 5,
+			"dialogue": "oskar",
+			"face": true
+		},
+		{
+			"type": "npc",
+			"id": "juniper",
+			"sprite": "villager",
+			"x": 31,
+			"y": 11,
+			"dialogue": "juniper",
+			"face": true,
+			"flip": true
+		},
+		{
+			"type": "save",
+			"id": "village_lantern",
+			"x": 16,
+			"y": 8,
+			"text": "The village lantern. Warm light pools around it like spilled honey."
+		},
+		{
+			"type": "sign",
+			"id": "village_sign",
+			"x": 3,
+			"y": 6,
+			"dialogue": "sign_village"
+		}
+	]
+}

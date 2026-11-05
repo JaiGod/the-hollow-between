@@ -1,0 +1,67 @@
+{
+	"name": "Between the Between",
+	"region": "???",
+	"music": "title",
+	"outdoor": false,
+	"tint": "#c8c0ff",
+	"weather": "stars",
+	"tiles": [
+		"xxxxxxxxxxxxxxxxxx",
+		"x****************x",
+		"x****************x",
+		"x****************x",
+		"x****************x",
+		"x****************x",
+		"x****************x",
+		"x****************x",
+		"x****************x",
+		"*****************x",
+		"x****************x",
+		"xxxxxxxxxxxxxxxxxx"
+	],
+	"spawns": {
+		"start": [
+			1,
+			9,
+			"right"
+		]
+	},
+	"exits": [
+		{
+			"rect": [
+				0,
+				9,
+				1,
+				1
+			],
+			"to": "forest_path",
+			"spawn": "from_hollow"
+		}
+	],
+	"entities": [
+		{
+			"type": "npc",
+			"id": "unfinished",
+			"sprite": "unfinished",
+			"x": 11,
+			"y": 4,
+			"float": true,
+			"dialogue": "unfinished"
+		},
+		{
+			"type": "item",
+			"id": "hollow_shard",
+			"sprite": "shard",
+			"x": 14,
+			"y": 8,
+			"text": "A shard of someone's memory. It hums your name.",
+			"do": {
+				"secret": "hollow",
+				"achievement": "secret_hollow",
+				"give": {
+					"memory_tonic": 1
+				}
+			}
+		}
+	]
+}
